@@ -50,4 +50,4 @@ Minecraft 1.16.5
 
 Forge 36.2.34+
 
-Pixelmon 9.1.12+
+Pixelmon 9.1.13+
