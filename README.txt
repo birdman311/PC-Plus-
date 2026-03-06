@@ -1,46 +1,53 @@
+🚨 MY MAIN GOAL IS TO GET POKESMASH MC TO SEE THIS! SPREAD THE WORD! 🚨 (My IGN is Birdman311 — SmashMC Groudon server is the GOAT! Have suggestions or server requests? Email me at minecraftlvr311@gmail.com)
 
-Source installation information for modders
--------------------------------------------
-This code follows the Minecraft Forge installation methodology. It will apply
-some small patches to the vanilla MCP source code, giving you and it access 
-to some of the data and functions you need to build a successful mod.
+Everyone who plays Pixelmon knows that sorting your PC, whether in single-player or multiplayer, can be a massive headache. Finding that one specific Hidden Ability Pokémon, clearing out boxes of breedjects, or gathering all your Legendaries out of hundreds of boxes takes way too much time.
 
-Note also that the patches are built against "un-renamed" MCP source code (aka
-SRG Names) - this means that you will not be able to read them directly against
-normal code.
+Well, I have got the solution!
 
-Setup Process:
-==============================
+This mod completely upgrades your Pixelmon PC by adding a brand-new set of clickable custom UI buttons right onto your screen. Instead of manually typing out tedious search queries, you can now instantly filter, organize, and manage your boxes with a single click.
 
-Step 1: Open your command-line and browse to the folder where you extracted the zip file.
+✨ NEW IN VERSION 1.0.4 ✨
 
-Step 2: You're left with a choice.
-If you prefer to use Eclipse:
-1. Run the following command: `gradlew genEclipseRuns` (`./gradlew genEclipseRuns` if you are on Mac/Linux)
-2. Open Eclipse, Import > Existing Gradle Project > Select Folder 
-   or run `gradlew eclipse` to generate the project.
+Dual-Type Filtering Dropdown: A sleek, brand-new "TYPES" menu lets you scroll through all 18 Pokémon types! Select up to two at a time (like Fire and Flying) to instantly highlight exact type combos in your boxes.
 
-If you prefer to use IntelliJ:
-1. Open IDEA, and import project.
-2. Select your build.gradle file and have it import.
-3. Run the following command: `gradlew genIntellijRuns` (`./gradlew genIntellijRuns` if you are on Mac/Linux)
-4. Refresh the Gradle Project in IDEA if required.
+Stackable Search Filters: Combine your searches like never before! Click @legendary on the right and Fire on the left to instantly find all your Legendary Fire-types. The search bar seamlessly builds your query automatically!
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can 
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+🔥 EXISTING FEATURES 🔥
 
-Mapping Names:
-=============================
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license, if you do not agree with it you can change your mapping names to other crowdsourced names in your 
-build.gradle. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
+Custom UI Buttons: Adds convenient buttons directly to your PC screen for: @shiny, @legendary, @mythical, @ultrabeast, @HA, @textured, and L100!
 
-Additional Resources: 
-=========================
-Community Documentation: http://mcforge.readthedocs.io/en/latest/gettingstarted/  
-LexManos' Install Video: https://www.youtube.com/watch?v=8VEdtQLuLO0  
-Forge Forum: https://forums.minecraftforge.net/  
-Forge Discord: https://discord.gg/UvedJ9m  
+Level 100 Filter: Instantly find all your max-level battle-ready Pokémon with the custom-built L100 button.
+
+Flawless Hidden Ability Detection: The @HA button uses rock-solid detection to highlight exactly which Pokémon in your box have their Hidden Abilities—no more guessing!
+
+Full Gen 1 - Gen 9 Support: The Legendary, Mythical, and Ultra Beast filters have been massively expanded. They don't just cover the classics; they fully recognize Paldean additions (like Koraidon, Miraidon, Ogerpon, and Pecharunt) and all the Paradox Pokémon!
+
+CTRL-Click Multi-Move: Quickly select and move multiple Pokémon at once to make organizing a breeze! (See multiplayer note below).
+
+Mass Delete (Trash Button): Select multiple junk Pokémon at once and instantly delete them all to clear out breedjects in seconds.
+
+Valuables Protection: A built-in safety scanner stops you from accidentally deleting Legendaries, Mythicals, Ultra Beasts, HAs, 100 IVs, or Textured Pokémon.
+
+Custom Keybinds: Fully customize the Multi-Select key in the Minecraft Controls menu.
+
+One-Click Clear: Done searching? Just hit the "Clear All" button to instantly reset your view and get back to managing your boxes.
+
+🌐 MULTIPLAYER & SERVER INFO 🌐 All of the custom search and filter buttons (including the new Type Menu and Stackable Filters) work perfectly out of the box on both Singleplayer and Multiplayer!
+
+Please note that the Ctrl-click multi-move and mass-delete features are currently supported for Singleplayer only in this public build.
+
+Server Owners: If you run a Pixelmon server (like SmashMC!) and want the full Ctrl-click organization and mass-delete functionality enabled for your players, drop a comment down below or message me at minecraftlvr311@gmail.com! I would be more than happy to provide a dedicated server-compatible version just for your community.
+
+⚙️ HOW TO USE ⚙️ Simply install the mod, jump into your world, and open any Pixelmon PC. When you open the search tab (default key is "I"), your new filter buttons and the TYPES dropdown will automatically appear on the screen. To select multiple Pokémon, hold Ctrl and Left-Click.
+
+📺 MOD SHOWCASE & TUTORIAL 📺 A massive shoutout and thank you to DoomGardenShovel for making an awesome tutorial and showcase video for this mod! You can watch it to see all the features in action right here: https://youtu.be/jMXpQnbTO4g?si=dx6q0Ep9wVCZeMGG
+
+📥 DOWNLOAD 📥 https://www.curseforge.com/minecraft/mc-mods/pc-plus
+
+📋 REQUIREMENTS 📋
+
+Minecraft 1.16.5
+
+Forge 36.2.34+
+
+Pixelmon 9.1.13+
