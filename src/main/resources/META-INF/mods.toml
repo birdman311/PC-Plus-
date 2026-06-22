@@ -1,0 +1,24 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+    modId="pcmod"
+    version="1.0.6"
+    displayName="PC Plus+"
+    authors="Birdman311"
+    description="Easily filter your PC boxes for Legendaries, Shinies, HAs, specific Types, and more! Now with Combo Filtering and the Group Update: see a green + next to other PC Plus+ users in the tab list and above their heads."
+
+[[dependencies.pcmod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.2.34,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.pcmod]]
+    modId="pixelmon"
+    mandatory=true
+    versionRange="[9.1.12,)"
+    ordering="BEFORE"
+    side="BOTH"

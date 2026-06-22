@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.Birdman311.pcmod.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "pcmod.refmap.json",
+  "mixins": [
+    "MixinPCStorageSearch"
+  ],
+  "client": [
+    "MixinPlayerList"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
