@@ -1,0 +1,130 @@
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net' }
+        // --- MIXIN REPO ---
+        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        // --- MIXIN PLUGIN ---
+        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+// --- APPLY MIXIN PLUGIN ---
+apply plugin: 'org.spongepowered.mixin'
+
+version = '1.0.4'
+group = 'com.Birdman311.pcmod'
+archivesBaseName = 'PC Plus+'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
+println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+// --- MIXIN CONFIGURATION ---
+mixin {
+    add sourceSets.main, "pcmod.refmap.json"
+    config "mixins.pcmod.json"
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.16.5'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            // --- MIXIN RUN ARGUMENTS ---
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            arg "-mixin.config=mixins.pcmod.json"
+
+            mods {
+                pcmod {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+
+            // --- MIXIN RUN ARGUMENTS ---
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+            arg "-mixin.config=mixins.pcmod.json"
+
+            mods {
+                pcmod {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            args '--mod', 'pcmod', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+
+            mods {
+                pcmod {
+                    source sourceSets.main
+                }
+            }
+        }
+    }
+}
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.16.5-36.2.34'
+
+    // Pixelmon local jar dependency
+    // NOTE: Using fg.deobf helps Eclipse read the Pixelmon classes properly!
+    implementation fg.deobf(fileTree(dir: 'libs', include: ['*.jar']))
+
+    // --- MIXIN PROCESSOR ---
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+jar {
+    manifest {
+        attributes([
+            "Specification-Title": "pcmod",
+            "Specification-Vendor": "Birdman311",
+            "Specification-Version": "1",
+            "Implementation-Title": project.name,
+            "Implementation-Version": "${version}",
+            "Implementation-Vendor": "Birdman311",
+            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+            // --- MIXIN MANIFEST ATTRIBUTE ---
+            "MixinConfigs": "mixins.pcmod.json"
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
+        }
+    }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
+}

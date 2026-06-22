@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All Rights Reserved"
+
+[[mods]]
+    modId="pcmod"
+    version="1.0.4"
+    displayName="PC Plus+"
+    authors="Birdman311"
+    description='''
+Everyone who plays Pixelmon can agree that sorting your PC can be a challenge. Well, I have got the solution! 
+
+You can now easily filter boxes using custom UI buttons for L100, HA, Shiny, Gen 1-9 Legendaries, and NOW specific Pokemon Types! Includes brand-new level 100 search logic and up-to-date Gen 9 Paradox support.
+
+NEW IN 1.0.4:
+- Dual-Type Filtering: A brand new "TYPES" drop-down menu! Scroll through all 18 types and click up to two of them (like Fire and Flying) to instantly find exactly what you are looking for. 
+
+EXISTING FEATURES:
+- Mass Multi-Select & Move: Hold Ctrl and click to grab multiple Pokémon at once and move them to new boxes instantly!
+- Mass Delete: Safely wipe out boxes of junk Pokémon in seconds.
+- Valuables Protection: A built-in scanner stops you from accidentally deleting Legendaries, Mythicals, Ultra Beasts, HAs, 100 IVs, or Textured Pokémon.
+- Custom Keybinds: Change the multi-select key to whatever you want in the Minecraft Controls menu.
+'''
+
+[[dependencies.pcmod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.2.34,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.pcmod]]
+    modId="pixelmon"
+    mandatory=true
+    versionRange="[9.1.12,)"
+    ordering="BEFORE"
+    side="BOTH"
